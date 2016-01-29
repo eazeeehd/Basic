@@ -1,0 +1,56 @@
+REM Peter Kemley
+REM 10/09/2013
+REM The Domestics Fan Price System
+REM Starting Date: 06/09/2013
+REM Finishing Date: ??/09/2013
+REM National 4 Assesment
+
+Public Class Form1
+
+    Private Sub Button1_Click(sender As System.Object, e As System.EventArgs) Handles Button1.Click
+
+        Dim First, Last, Town As String
+        Dim Age, Ticket, Travel, Total As Integer
+
+        First = TextBox1.Text
+        Last = TextBox2.Text
+        Town = TextBox4.Text
+
+        TextBox3.Text = Age
+        TextBox7.Text = Ticket
+        TextBox8.Text = Total
+
+        First = InputBox("Please Insert Your First Name Please", "First")
+        Last = InputBox("Please Insert Your Last Name Please", "Last")
+        Age = InputBox("Please Insert Your Age", "Age")
+        Town = InputBox("Please Insert If You Are From Dundee Or Perth", "Town")
+        Ticket = InputBox("Please Insert The Ticket Price Of Your Ticket", "Ticket")
+        Travel = InputBox("Please Insert The Price Of Your Travel", "Price Of Travel")
+
+        REM Strings
+        First = TextBox1.Text
+        Last = TextBox2.Text
+        Town = TextBox4.Text
+
+        REM Integers
+        TextBox8.Text = Age
+        TextBox7.Text = Ticket
+        TextBox8.Text = Total
+
+        Total = (Ticket + Age)
+
+    End Sub
+
+    Private Sub Form1_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
+        Dim First, Last, Town As String
+        Dim Age, Ticket, Travel, Total As Integer
+        REM Strings
+        First = TextBox1.Text
+        Last = TextBox2.Text
+        Town = TextBox4.Text
+        REM Integers
+        TextBox3.Text = Age
+        TextBox7.Text = Ticket
+        TextBox8.Text = Total
+    End Sub
+End Class

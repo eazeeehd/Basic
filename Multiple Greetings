@@ -1,0 +1,29 @@
+Public Class Form1
+
+    Private Sub Button1_Click(sender As System.Object, e As System.EventArgs) Handles Button1.Click
+        REM Multiple Greetings
+        REM Peter Kemley 03/09/2013
+
+        REM Declare to varibles
+        Dim Text As String
+        Dim NumberOfTime As Integer
+
+        REM get the user's inputs
+        Text = Textbox1.text
+        NumberOfTime = TextBox2.Text
+
+        REM Loop to display
+        For Times = 1 To NumberOfTime
+            ListBox1.Items.Add(Text) 'Display Greeting
+            ListBox1.Items.Add(Text) 'Display a blank line
+        Next
+
+    End Sub
+
+    Private Sub Button2_Click(sender As System.Object, e As System.EventArgs) Handles Button2.Click
+        ListBox1.ClearSelected()
+        TextBox1.Clear()
+        TextBox2.Clear()
+
+    End Sub
+End Class

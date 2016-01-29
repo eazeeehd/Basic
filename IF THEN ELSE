@@ -1,0 +1,28 @@
+Public Class Form1
+
+    Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
+        listbox1.items.clear()
+    End Sub
+
+    Private Sub Button4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button4.Click
+        Me.Close()
+    End Sub
+    Dim age As Integer
+    Dim message As String
+    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
+        takeinage()
+        checkage()
+    End Sub
+    Sub TakeInAge()
+        age = InputBox("Please Enter Your Age.")
+        ListBox1.Items.Add("You Are " & age & " Years Old")
+    End Sub
+    Sub CheckAge()
+        If age >= 18 Then
+            message = "You May Vote"
+        Else
+            message = "You Are Not Able To Vote"
+        End If
+        ListBox1.Items.Add(message)
+    End Sub
+End Class

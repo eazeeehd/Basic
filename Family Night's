@@ -1,0 +1,79 @@
+REM Peter Kemley
+REM Hotel Bookings
+REM November 2013
+REM National 5 Assesment
+Public Class Form1
+    Private Sub Button1_Click(sender As System.Object, e As System.EventArgs) Handles Button1.Click
+
+        Dim rooms(3), fname, arrivaldate, choice As String
+        Dim costs(3), no_nights, numofrooms, tcost, counter As Integer
+        Dim fcost As Single
+
+
+        rooms(0) = "Single"
+        rooms(1) = "Double"
+        rooms(2) = "Family"
+        rooms(3) = "Executive"
+
+        costs(0) = 10
+        costs(1) = 20
+        costs(2) = 30
+        costs(3) = 40
+
+        fname = InputBox("Please enter your family name")
+        arrivaldate = InputBox("Please enter the date of your arrival")
+        no_nights = InputBox("Please enter the number of nights for your stay")
+
+        Do While no_nights < 1 Or no_nights > 14
+            no_nights = InputBox("Please re-enter the number of nights for your stay. Maximum of 14 nights")
+        Loop
+
+        numofrooms = InputBox("Please enter the number of rooms you require")
+
+        Do While numofrooms < 1 Or numofrooms > 4
+            numofrooms = InputBox("Please re-enter the number of rooms required to maximum of 4 ")
+        Loop
+
+        For counter = 1 To numofrooms
+            choice = InputBox("Please enter the type of room you want: S = Single,D= Double,F= Family suite, E= Executive Suite")
+            Select Case choice
+                Case Is = "S"
+                    ListBox1.Items.Add(rooms(0))
+                    ListBox2.Items.Add(costs(0))
+                    tcost = tcost + costs(0)
+                Case Is = "D"
+                    ListBox1.Items.Add(rooms(1))
+                    ListBox2.Items.Add(costs(1))
+                    tcost = tcost + costs(1)
+                Case Is = "F"
+                    ListBox1.Items.Add(rooms(2))
+                    ListBox2.Items.Add(costs(2))
+                    tcost = tcost + costs(2)
+                Case Is = "E"
+                    ListBox1.Items.Add(rooms(3))
+                    ListBox2.Items.Add(costs(3))
+                    tcost = tcost + costs(3)
+            End Select
+        Next
+
+
+        fcost = (tcost + (tcost * 0.2)) * no_nights
+
+        TextBox4.Text = Format(fcost, "currency")
+        TextBox1.Text = fname
+        TextBox3.Text = arrivaldate
+        TextBox2.Text = no_nights
+    End Sub
+    Private Sub Button2_Click(sender As System.Object, e As System.EventArgs) Handles Button2.Click
+        TextBox1.Clear()
+        TextBox2.Clear()
+        TextBox3.Clear()
+        TextBox4.Clear()
+        ListBox1.Items.Clear()
+        ListBox2.Items.Clear()
+    End Sub
+
+    Private Sub Form1_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
+
+    End Sub
+End Class

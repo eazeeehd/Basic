@@ -1,0 +1,102 @@
+REM Peter Kemley
+REM 18/03/2014
+REM Scottish Temperatures
+Public Class Form1
+    Dim Temperature(11) As Single
+    Private Sub Button3_Click(sender As System.Object, e As System.EventArgs) Handles Button3.Click
+        REM Clearing the Textbox's
+        TextBox1.Clear()
+        TextBox2.Clear()
+    End Sub
+
+    Private Sub Button1_Click(sender As System.Object, e As System.EventArgs) Handles Button1.Click
+        REM Naming Variables
+        Dim location As String
+
+        REM Assigning Variables to Inputboxes
+        location = InputBox("Enter The Location of the place you wish to find the temperature of", "location")
+        TextBox1.Text = location
+
+        REM Looping the amount of months
+        For index = 0 To 11
+            Temperature(index) = InputBox("Please Enter the Temperature For the month")
+        Next
+    End Sub
+
+    Private Sub Button2_Click(sender As System.Object, e As System.EventArgs) Handles Button2.Click
+
+        REM Naming Variables
+        Dim counter As Integer
+        Dim average_temperature As Single
+        Dim Total_Temperature As Single
+
+        REM IF construct for every month
+        If CheckBox1.Checked = True Then
+            Total_Temperature = Total_Temperature + Temperature(0)
+            counter = counter + 1
+        End If
+
+        If CheckBox2.Checked = True Then
+            Total_Temperature = Total_Temperature + Temperature(1)
+            counter = counter + 1
+        End If
+
+        If CheckBox3.Checked = True Then
+            Total_Temperature = Total_Temperature + Temperature(2)
+            counter = counter + 1
+        End If
+
+        If CheckBox4.Checked = True Then
+            Total_Temperature = Total_Temperature + Temperature(3)
+            counter = counter + 1
+        End If
+
+        If CheckBox5.Checked = True Then
+            Total_Temperature = Total_Temperature + Temperature(4)
+            counter = counter + 1
+        End If
+
+        If CheckBox6.Checked = True Then
+            Total_Temperature = Total_Temperature + Temperature(5)
+            counter = counter + 1
+        End If
+
+        If CheckBox7.Checked = True Then
+            Total_Temperature = Total_Temperature + Temperature(6)
+            counter = counter + 1
+        End If
+
+        If CheckBox8.Checked = True Then
+            Total_Temperature = Total_Temperature + Temperature(7)
+            counter = counter + 1
+        End If
+
+        If CheckBox9.Checked = True Then
+            Total_Temperature = Total_Temperature + Temperature(8)
+            counter = counter + 1
+        End If
+
+        If CheckBox10.Checked = True Then
+            Total_Temperature = Total_Temperature + Temperature(9)
+            counter = counter + 1
+        End If
+
+        If CheckBox11.Checked = True Then
+            Total_Temperature = Total_Temperature + Temperature(10)
+            counter = counter + 1
+        End If
+
+        If CheckBox12.Checked = True Then
+            Total_Temperature = Total_Temperature + Temperature(11)
+            counter = counter + 1
+        End If
+
+        REM Average Temperature Math
+        average_temperature = Total_Temperature / counter
+        TextBox2.Text = average_temperature
+    End Sub
+    Private Sub Button4_Click(sender As System.Object, e As System.EventArgs) Handles Button4.Click
+        Me.Close()
+    End Sub
+End Class
+

@@ -1,0 +1,13 @@
+Public Class Form1
+
+    Private Sub Button1_Click(sender As System.Object, e As System.EventArgs) Handles Button1.Click
+        Dim counter As Integer
+        Dim player_name As String
+        Dim player_goals As Integer
+
+        For counter = 1 To 5
+            player_name = InputBox("Please Enter the footballer's name")
+            player_goals = InputBox("Please Enter the amount of goals the footballer has scored")
+        Next
+    End Sub
+End Class

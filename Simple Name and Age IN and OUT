@@ -1,0 +1,17 @@
+Public Class Form1
+
+    Private Sub Button1_Click(sender As System.Object, e As System.EventArgs) Handles Button1.Click
+        Dim name As String
+        Dim last As String
+        Dim age As Integer
+
+
+        name = InputBox("Please Enter Your First Name", "First Name")
+        last = InputBox("Please Enter Your Surname", "Surname")
+        age = InputBox("Please Enter Your Age", "Age")
+
+        TextBox1.Text = name
+        TextBox2.Text = last
+        TextBox3.Text = age
+    End Sub
+End Class

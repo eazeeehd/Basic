@@ -1,0 +1,83 @@
+REM Peter Kemley
+REM 22/10/2013
+Public Class Form1
+
+    Private Sub Button1_Click(sender As System.Object, e As System.EventArgs) Handles Button1.Click
+        Dim firstname, lastname, gemstone As String
+        Dim day, month As Integer
+
+        gemstone = TextBox5.Text
+
+        firstname = InputBox("Please Enter Your First Name", "Firstname")
+        TextBox1.Text = firstname
+        lastname = InputBox("Please Enter Your Last Name", "Lastname")
+        TextBox2.Text = lastname
+
+        Do
+            day = InputBox("Please Enter Your Date Of Birth", "Date Of Birth")
+            TextBox4.Text = day
+            If day < 1 Or day > 31 Then
+                MsgBox("Wrong Please Enter A Number between or equal to 1-31")
+            End If
+        Loop Until day >= 1 And day <= 31
+
+        Do
+            month = InputBox("Please Enter Your Month Of Birth", "Month Of Birth")
+            TextBox3.Text = month
+            If month < 1 Or month > 31 Then
+                MsgBox("Wrong Please Enter A Number between or equal to 1-12")
+            End If
+        Loop Until month >= 1 And month <= 12
+
+        If month = 1 Then
+            gemstone = "Your Gemstone Is Garnet"
+            TextBox5.Text = gemstone
+        End If
+        If month = 2 Then
+            gemstone = "Your Gemstone Is Amethyst"
+            TextBox5.Text = gemstone
+        End If
+        If month = 3 Then
+            gemstone = "Your Gemstone Is Aquamarine"
+            TextBox5.Text = gemstone
+        End If
+        If month = 4 Then
+            gemstone = "Your Gemstone Is Diamond"
+            TextBox5.Text = gemstone
+        End If
+        If month = 5 Then
+            gemstone = "Your Gemstone Is Emerald"
+            TextBox5.Text = gemstone
+        End If
+        If month = 6 Then
+            gemstone = "Your Gemstone Is Pearls"
+            TextBox5.Text = gemstone
+        End If
+        If month = 7 Then
+            gemstone = "Your Gemstone Is Ruby"
+            TextBox5.Text = gemstone
+        End If
+        If month = 8 Then
+            gemstone = "Your Gemstone Is Peridot"
+            TextBox5.Text = gemstone
+        End If
+        If month = 9 Then
+            gemstone = "Your Gemstone Is Sapphire"
+            TextBox5.Text = gemstone
+        End If
+        If month = 10 Then
+            gemstone = "Your Gemstone Is Opal"
+            TextBox5.Text = gemstone
+        End If
+        If month = 11 Then
+            gemstone = "Your Gemstone Is Topaz"
+        End If
+        If month = 12 Then
+            gemstone = "Your Gemstone Is Turquoise"
+        End If
+
+    End Sub
+    Private Sub Button2_Click(sender As System.Object, e As System.EventArgs) Handles Button2.Click
+        Me.Close()
+    End Sub
+End Class

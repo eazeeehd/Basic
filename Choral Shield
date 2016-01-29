@@ -1,0 +1,100 @@
+'Choral Shield
+'Peter Kemley
+'Start Date:19/02/2015
+'Finished Date:25/02/2015
+Public Class Form
+    'This Button is the main button
+    Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
+        'Declaring Variables
+        Dim customerid(499) As String
+        Dim ticketid(499) As String
+        Dim numberoftickets(499) As Integer
+        Dim method(499) As String
+        'Sub Routines
+        'Sub Routine to read data From the document
+        readdata(customerid, ticketid, numberoftickets, method)
+        'Sub Routine To Calculate
+        calculations(customerid, ticketid, numberoftickets, method)
+        'Sub Routine To Write Data To Document
+        writedata(customerid, ticketid, numberoftickets, method)
+    End Sub
+    'This Sub Contains The Code That Reads The Data
+    Sub readdata(ByRef customerid, ByRef ticketid, ByRef numberoftickets, ByRef method)
+        'Declaring Local Variables
+        Dim newsentence, filename As String
+        Dim x As Integer
+        Dim Temp(3) As String
+        'Telling the computer where to find the data
+        filename = "\\gs236svr001\Pupils\147452PK\COMPUTING\Course Work\Choral Shield\Testdata\Coral 3.csv"
+        'the computer reading the lines of the csv file and putting them into arrays
+        Dim objtextfile As New System.IO.StreamReader(filename)
+        For x = 0 To 499
+            newsentence = objtextfile.ReadLine()
+            'Splits Data At Delimeter
+            Temp = newsentence.Split(","c)
+            customerid(x) = Temp(0)
+            ticketid(x) = Temp(1)
+            numberoftickets(x) = Temp(2)
+            method(x) = Temp(3)
+        Next
+        'Closing and Disposing the file
+        objtextfile.Close()
+        objtextfile.Dispose()
+    End Sub
+    'This Sub Contains The Code That Calculates The Data
+    Sub calculations(ByRef customerid, ByRef ticketid, ByRef numberoftickets, ByRef method)
+        'Declaring Local Variables
+        Dim x, popular, total As Integer
+        Dim msg As String
+        'Making the counter so that if people buy the tickets online then it will add one to the counter a.k.a popular
+        For x = 0 To 499
+            If method(x) = "O" Then
+                popular = popular + 1
+            End If
+        Next
+        'If the counter popular is over 250 sales then thats more than half the tickets so the best sale method would be Online else School
+        If popular > 250 Then
+            msg = "The overall favorite method of purchase was Online"
+        Else
+            msg = "The overall favorite method of purchase was School"
+        End If
+        'Clearing the total
+        total = 0
+        'Pricing the nights Friday = £10 Rest = £5
+        For x = 0 To 499
+            If ticketid(x).substring(0, 1) = "F" Then
+                total = total + numberoftickets(x) * 10
+            Else
+                total = total + numberoftickets(x) * 5
+            End If
+        Next
+        ListBox1.Items.Add("Essel Shield " & DateTime.Now.Year)
+        ListBox1.Items.Add(msg)
+        ListBox1.Items.Add("£" & total)
+    End Sub
+    'This Sub Contains The Code That Writes The Data
+    Sub writedata(ByRef customerid, ByRef ticketid, ByRef numberoftickets, ByRef method)
+        'Declaring Local Variables
+        Dim x As Integer
+        Dim newsentence, filename As String
+        'Telling The Computer Where To
+        filename = "\\gs236svr001\Pupils\147452PK\COMPUTING\Course Work\Choral Shield\Testdata\Friday.csv"
+        Dim objtextfile As New System.IO.StreamWriter(filename)
+        For x = 0 To 499
+            If ticketid(x).Substring(0, 1) = "F" Then
+                newsentence = customerid(x) & "," & ticketid(x) & "," & numberoftickets(x) & "," & method(x)
+                objtextfile.WriteLine(newsentence)
+            End If
+        Next
+        'Closing The Open File
+        objtextfile.Close()
+    End Sub
+    'This Button Clears The Text From The Listbox
+    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
+        ListBox1.Items.Clear()
+    End Sub
+    'This Button Exits From The Program
+    Private Sub Button3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button3.Click
+        Me.Close()
+    End Sub
+End Class

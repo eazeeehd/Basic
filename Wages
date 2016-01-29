@@ -1,0 +1,15 @@
+Public Class Form1
+
+    Private Sub Button1_Click(sender As System.Object, e As System.EventArgs) Handles Button1.Click
+        Dim Hours As Integer
+        Dim HourlyRate As Decimal
+        Dim TotalWage As Decimal
+
+        Hours = TextBox1.Text 'Get inputs
+        HourlyRate = TextBox2.Text
+
+        TotalWage = TextBox3.Text 'Calculate Total Earnings
+
+        TextBox3.Text = TotalWage 'Display Total Wage
+    End Sub
+End Class

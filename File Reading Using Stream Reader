@@ -1,0 +1,25 @@
+        Dim filename As String
+        filename = "H:\COMPUTING\pupils.csv"
+        Dim Temp(2) As String
+        Dim currentline As String
+        Dim firstname(14), lastname(14), grade(14) As String
+        Dim x As Integer
+
+        'Format
+        'NAME, ASURNAME
+        Dim objtextfile As New System.IO.StreamReader(filename)
+
+        For x = 0 To 14
+            currentline = objtextfile.ReadLine()
+            'Splits Data At Delimeter 
+            Temp = currentline.Split(","c)
+            firstname(x) = Temp(0)
+            lastname(x) = Temp(1)
+            grade(x) = Mid(Temp(1), 1, 1)
+            lastname(x) = Mid(Temp(1), 2)
+            currentline = firstname(x) & "," & lastname(x) & "," & grade(x)
+            ListBox1.Items.Add(currentline)
+        Next
+
+        objtextfile.Close()
+        objtextfile.Dispose()

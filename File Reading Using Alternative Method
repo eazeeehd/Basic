@@ -1,0 +1,23 @@
+        Dim filename As String
+        filename = "H:\COMPUTING\pupils.csv"
+        Dim Temp(2) As String
+        Dim currentline As String
+        Dim firstname(15), lastname(15), grade(15) As String
+        Dim x As Integer
+
+        'Format
+        'NAME, ASURNAME
+        FileOpen(1, filename, OpenMode.Input)
+        For x = 0 To 14
+            currentline = LineInput(1)
+            'Splits Data At Delimeter 
+            Temp = currentline.Split(","c)
+            firstname(x) = Temp(0)
+            lastname(x) = Temp(1)
+            grade(x) = Mid(Temp(1), 1, 1)
+            lastname(x) = Mid(Temp(1), 2)
+            ListBox1.Items.Add(firstname(x))
+            ListBox2.Items.Add(lastname(x))
+            ListBox3.Items.Add(grade(x))
+        Next
+        FileClose(1)
